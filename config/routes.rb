@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'protos/index'
-  root to: "protos#index"
+  devise_for :users
+  root to: 'protos#index'
   resources :protos
 end
