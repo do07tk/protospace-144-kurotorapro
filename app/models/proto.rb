@@ -5,6 +5,8 @@ class Proto < ApplicationRecord
   validates :concept, presence: true
   validates :image, presence: true
   
+  has_many :comments
   belongs_to :user
   has_one_attached :image
+  
 end
