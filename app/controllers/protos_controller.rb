@@ -1,4 +1,7 @@
 class ProtosController < ApplicationController
-  def index
-  end
+ def index
+  @protos=Proto.all
+ end
+
+
 end
