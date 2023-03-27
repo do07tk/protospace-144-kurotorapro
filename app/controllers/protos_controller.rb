@@ -4,7 +4,11 @@ class ProtosController < ApplicationController
   end
 
   def create
-    @proto = Proto.new(proto_params)
+    if @proto = Proto.create(proto_params)
+      redirect_to root_path
+    else
+      render :new_proto_path
+    end
   end
 
   def new
@@ -13,7 +17,7 @@ class ProtosController < ApplicationController
 
   private
 
-  def mproto_params
+  def proto_params
     params.require(:proto).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
   end
 end
