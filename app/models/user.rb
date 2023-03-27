@@ -9,5 +9,5 @@ class User < ApplicationRecord
   validates :occupation, presence: true
   validates :position, presence: true
 
-  has_meny :protos
+  has_many :protos
 end
