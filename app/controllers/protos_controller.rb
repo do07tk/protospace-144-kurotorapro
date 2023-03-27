@@ -3,5 +3,7 @@ class ProtosController < ApplicationController
   @protos=Proto.all
  end
 
-
+ def create
+ @proto = Proto.new(proto_params)
+ end
 end
