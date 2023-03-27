@@ -1,2 +1,5 @@
 class Proto < ApplicationRecord
+
+
+  
 end
