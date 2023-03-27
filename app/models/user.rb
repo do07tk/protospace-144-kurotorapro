@@ -10,4 +10,6 @@ class User < ApplicationRecord
   validates :position, presence: true
 
   has_many :comments
+  has_many :protos
+
 end
