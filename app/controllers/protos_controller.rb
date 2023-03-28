@@ -1,10 +1,11 @@
 class ProtosController < ApplicationController
   def index
-    @protos=Proto.all
+    @protos = Proto.includes(:user)
   end
 
   def create
-    if @proto = Proto.create(proto_params)
+    @proto = Proto.create(proto_params)
+    if @proto.save
       redirect_to root_path
     else
       render :new_proto_path
