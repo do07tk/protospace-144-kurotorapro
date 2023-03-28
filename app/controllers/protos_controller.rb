@@ -16,6 +16,12 @@ class ProtosController < ApplicationController
     @proto = Proto.new
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   private
 
   def proto_params
