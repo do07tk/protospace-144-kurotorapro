@@ -8,11 +8,11 @@ class ProtosController < ApplicationController
   end
 
   def create
-    @proto = Proto.create(proto_params)
-    if @proto.save
+    proto = Proto.create(proto_params)
+    if proto.save
       redirect_to root_path
     else
-      render :new_proto_path
+      redirect_to new_proto_path
     end
   end
 
@@ -25,14 +25,20 @@ class ProtosController < ApplicationController
   def edit
     @proto = Proto.find(params[:id])
   end
-
+  
   def update
     proto = Proto.find(params[:id])
     if proto.update(proto_params)
-      redirect_to new_proto_path
+      redirect_to proto_path
     else
       render :edit
     end
+  end
+  
+  def destroy
+    proto = Proto.find(params[:id])
+    proto.destroy
+    redirect_to root_path
   end
 
   private
