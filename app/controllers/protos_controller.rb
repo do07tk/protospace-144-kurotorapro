@@ -3,6 +3,10 @@ class ProtosController < ApplicationController
     @protos = Proto.includes(:user)
   end
 
+  def new
+    @proto = Proto.new
+  end
+
   def create
     @proto = Proto.create(proto_params)
     if @proto.save
@@ -12,8 +16,10 @@ class ProtosController < ApplicationController
     end
   end
 
-  def new
-    @proto = Proto.new
+  def show
+    @proto = Proto.find(params[:id])
+    @comment = Comment.new
+    @comments = @proto.comments.includes(:user)
   end
 
   private
