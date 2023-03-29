@@ -29,7 +29,7 @@ class ProtosController < ApplicationController
   def update
     proto = Proto.find(params[:id])
     if proto.update(proto_params)
-      redirect_to proto_path
+       redirect_to proto_path
     else
       render :edit
     end

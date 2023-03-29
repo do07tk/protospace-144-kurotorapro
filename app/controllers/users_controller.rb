@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   def show
     user = User.find(params[:id])
-  end
-  
-  private
-  def user_params
-    params.require(:user).permit(:name,:occupation,:position,:profile)
-  end
+    @protos = user.protos
+  end  
 end
