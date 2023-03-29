@@ -5,8 +5,6 @@
     <p class="card__summary">
       <%= proto.catch_copy %>
     </p>
-    <% if user_signed_in? %>
-      <%= link_to "by#{current_user.name}", user_path(current_user.id), class: :card__user %>
-    <% end %>
+      <%= link_to "by#{proto.user.name}", user_path(proto.user.id), class: :card__user %>
   </div>
 </div>
