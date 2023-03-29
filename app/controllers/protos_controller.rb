@@ -1,4 +1,6 @@
 class ProtosController < ApplicationController
+  before_action :authenticate_user!, only: [:new] 
+
   def index
     @protos = Proto.includes(:user)
   end
